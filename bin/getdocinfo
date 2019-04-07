@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Default Paths
+FilePath=$HOME/system/opt/pench/share/pench/files
+TemplatePath=$HOME/system/opt/pench/share/pench/template
+
+# Getting information from the User
+echo Creating a LaTeX Document:
+read -p "Enter the document type [article/beamer/book] : " -i "article" \
+        -e DocType
+read -p "Enter the target directory: " -i "$PWD" -e TargetPath
+read -p "Enter the title of the document: " -e DocName
+ID=$(simpletitle $DocName)
+
+export DocType
+export TargetPath
+export DocName
+export ID
+echo

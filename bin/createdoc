@@ -1,0 +1,40 @@
+#!/bin/bash
+# Exit on Any Command Failing
+set -e
+set -o pipefail
+
+source $HOME/system/opt/pench/bin/getdocinfo
+
+if  readlink -e "$TargetPath/$ID"; then
+  echo "FATAL ERROR: Path Exists. Exiting..."
+  exit 1
+fi
+
+mkdir $TargetPath/$ID
+
+# Copying Template
+case $DocType in
+  article)
+    cp $TemplatePath/article.tex $TargetPath/$ID/$ID.tex
+    ;;
+  beamer)
+    cp $TemplatePath/beamer.tex $TargetPath/$ID/$ID.tex
+    ;;
+  book)
+    cp $TemplatePath/book.tex $TargetPath/$ID/$ID.tex
+    ;;
+  *)
+    echo "Wrong Document Type"
+    ;;
+esac
+
+cd $TargetPath/$ID
+cp $FilePath/gitignore .gitignore
+cp $FilePath/vimrc .vimrc
+cp $FilePath/makefile makefile
+cp $FilePath/latexmkrc .latexmkrc
+
+# Renaming Placeholders
+sed -i "s/{{{TITLE}}}/$DocName/g"  $ID.tex
+sed -i "s/{{{TITLE}}}/$ID/g"  makefile
+echo -e "\n $ID"

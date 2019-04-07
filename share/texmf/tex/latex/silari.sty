@@ -1,0 +1,72 @@
+% Silari Package
+% Provides Shortcuts to Different Math Fonts, should be included with everything
+\ProvidesPackage{silari}
+
+% Grammar (Normally the space will be all wrong, we fix it)
+\newcommand*{\mcom}{\,\text{,}}
+\newcommand*{\mper}{\,\text{.}}
+
+\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+
+% Number Systems
+\newcommand*{\reals}{\mathbb{R}}
+\newcommand*{\naturals}{\mathbb{N}}
+\newcommand*{\complex}{\mathbb{C}}
+
+% Norm
+\newcommand*{\norm}[1]{\left\lVert #1 \right\rVert}
+
+% Absolute Value
+\newcommand*{\abs}[1]{\left\lvert #1 \right\rvert}
+
+% Sign Operator
+\DeclareMathOperator{\sign}{sgn}
+
+%% Analysis and Topological Operators
+% When writing f : X -> X, the colon to be used is \colon instead of just
+% typing ':'. Hence, we present a simplification for the same, which is much
+% more correct idiomatically
+\newcommand*{\from}{\colon}
+
+% Compose
+\newcommand*{\compose}{\circ}
+
+% Local
+\newcommand*{\loc}{\text{loc}}
+
+%% Important Spaces
+% Total Variation
+\newcommand*{\TV}{\sfT\sfV}
+
+% Bounded Variation
+\newcommand*{\BV}{\sfB\sfV}
+\newcommand*{\closure}{\sfc\sfl}
+
+%% Different Derivatives
+% Ordinary Derivative
+\newcommand*{\dd}[3][]{%
+\ifthenelse{\equal{#1}{}}
+{\frac{\rmd #2}{\rmd #3}}%
+{\frac{\rmd^{#1}#2}{{\rmd #3}^{#1}}}%
+}
+
+% Partial Derivative
+\newcommand*{\pdd}[3][]{%
+\ifthenelse{\equal{#1}{}}
+{\dfrac{\partial #2}{\partial #3}}%
+{\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}%
+}
+
+% Gradient
+\DeclareMathOperator*\grad{\nabla}
+
+% Curl
+\DeclareMathOperator*\curl{\nabla}
+
+% Divergence
+\DeclareMathOperator*\divergence{\nabla}
+
+\makeatletter
+\newcommand*\dotp{\mathpalette\dotp@{.5}}
+\newcommand*\dotp@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother

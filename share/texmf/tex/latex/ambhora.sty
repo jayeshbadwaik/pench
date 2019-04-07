@@ -1,0 +1,82 @@
+\ProvidesPackage{ambhora}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Package List
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\RequirePackage{amsthm}
+
+% We use mdframed to provide for nice equation and other frames
+\RequirePackage{mdframed}
+
+\RequirePackage{newfloat}
+
+
+\RequirePackage{lastpage}
+
+\RequirePackage{fancyhdr}
+
+\RequirePackage{etoolbox}
+
+\RequirePackage{booktabs}
+
+\RequirePackage{tocbibind}
+
+\RequirePackage{empheq}
+
+\pagestyle{fancy}
+
+
+
+
+% Now, we introduce the required theorem environments and other environments and
+% customize them according to our preferences.
+% We first define a dummy environment for tracking the counter. All math
+% environments would track according to this counter.
+\newtheorem{environment}{Environment}
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}[environment]{Theorem}
+\newtheorem{proposition}[environment]{Proposition}
+\newtheorem{lemma}[environment]{Lemma}
+\newtheorem{corollary}[environment]{Corollary}
+\newtheorem{axiom}[environment]{Axiom}
+\newtheorem{assumption}[environment]{Assumption}
+\newtheorem{definition}[environment]{Definition}
+\newtheorem{example}[environment]{Example}
+\newtheorem{problem}[environment]{Problem}
+\newtheorem{notation}[environment]{Notation}
+
+% Now, we have low profile things like remarks.
+\theoremstyle{remark}
+\newtheorem{remark}[environment]{Remark}
+\newtheorem{note}[environment]{Note}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[
+  linesnumbered,
+  lined,
+  boxed,
+  commentsnumbered,
+  titlenumbered,
+  algoruled,
+  dotocloa
+  ]{algorithm2e}
+
+\RequirePackage{afterpage}
+\RequirePackage{emptypage}
+\RequirePackage{bold-extra}
+%
+\RequirePackage{hyphenat}
+\RequirePackage{epigraph}
+\RequirePackage{setspace}
+\RequirePackage{fancyvrb}
+
+

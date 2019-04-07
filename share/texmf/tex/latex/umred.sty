@@ -1,0 +1,122 @@
+% Umred Package
+% Common Functionality For Document Types Article and Book
+\ProvidesPackage{umred}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Package List
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{amsmath}
+
+
+\RequirePackage{amssymb}
+
+\RequirePackage{babel}
+
+\RequirePackage{bigints}
+
+\RequirePackage{cancel}
+
+\RequirePackage{caption}
+
+
+% Context Sensitive Quotes
+\RequirePackage{csquotes}
+
+\RequirePackage{enumitem}
+
+% Integrals with Dashes
+\RequirePackage{esint}
+
+\RequirePackage{faktor}
+
+%% Embed XMP Metadata in PDF File
+\RequirePackage{hyperxmp}
+
+\RequirePackage{mathtools}
+
+\RequirePackage{mathdots}
+
+% Fixes the bug in marginpars. For more details, see
+% http://ctan.sharelatex.com/tex-archive/macros/latex/contrib/mparhack/mparhack
+%.pdf
+\RequirePackage{mparhack}
+
+\RequirePackage{nag}
+
+\RequirePackage{polyglossia}
+
+\RequirePackage{relsize}
+
+\RequirePackage{subcaption}
+
+\RequirePackage{tikz}
+
+\RequirePackage{tikz-3dplot}
+
+\RequirePackage{xfrac}
+
+\RequirePackage{listings}
+
+\RequirePackage[sorting=ydnt,bibstyle=alphabetic,
+            citestyle=alphabetic,backend=biber]{biblatex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PassOptionsToPackage{base}{babel}
+
+\PassOptionsToPackage{
+  mathup=sym, mathit=sym, mathsf=sym, mathbf=sym, mathtt=sym, math-style=ISO
+}{unicode-math}
+
+\PassOptionsToPackage{final}{microtype}
+
+%% Emphasis should be Bold, instead of Italics
+\let\emph\relax
+\DeclareTextFontCommand{\emph}{\bfseries}
+
+%% Set Main Language for Babel
+\setmainlanguage{english}
+
+\usetikzlibrary{calc}
+\usetikzlibrary{angles}
+\usetikzlibrary{shapes}
+\usetikzlibrary{positioning}
+\usetikzlibrary{quotes}
+\usetikzlibrary{intersections}
+
+% Appearances Hacks
+% We want our matrices to look good and hence, we are increasing the spacing
+% between the matrices
+\renewcommand*{\arraystretch}{1.3}
+
+
+% Blacksquare at the end of Proof Environment
+\renewcommand{\qedsymbol}{$\blacksquare$}
+% We make the proof heading bold
+% This is done before defining the solution enviornment so that
+% the solution enviornment also carries the same properties.
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{%
+  \par\pushQED{\qed}\normalfont%
+  \topsep6\p@\@plus6\p@\relax
+  \trivlist\item[\hskip\labelsep\bfseries#1\@addpunct{.}]%
+  \ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+% I want exactly one space after the sentence. I think this is better to read.
+\frenchspacing
+
+
+
+
+
+\setlist[enumerate]{align=left}
+\setlist[itemize]{align=left}
+
+

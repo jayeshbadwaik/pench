@@ -1,0 +1,77 @@
+\ProvidesPackage{postambhora}
+
+\makeatletter
+\let\reftagform@=\tagform@
+\def\tagform@#1{\maketag@@@{(\ignorespaces\textcolor{MidnightBlue}{#1}\unskip\@@italiccorr)}}
+\renewcommand{\eqref}[1]{\textup{\reftagform@{\ref{#1}}}}
+
+% We colorize the theorem headings and other things
+\makeatletter
+\def\th@plain{%
+  \thm@notefont{\normalfont \color{MidnightBlue}}% same as heading font
+  \thm@headfont{\bfseries \color{MidnightBlue}}% same as heading font
+  \normalfont % body font
+}
+\def\th@definition{%
+  \thm@notefont{\normalfont \color{MidnightBlue}}% same as heading font
+  \thm@headfont{\bfseries \color{MidnightBlue}}% same as heading font
+  \normalfont % body font
+}
+\def\th@remark{%
+  \thm@notefont{\normalfont \color{MidnightBlue}}% same as heading font
+  \thm@headfont{\bfseries \color{MidnightBlue}}% same as heading font
+  \normalfont % body font
+}
+\makeatother
+
+% Making the Captions Blue
+\PassOptionsToPackage{labelfont={color=MidnightBlue,bf,sf},labelsep=space}{caption}
+
+% Making the Headers and Footers Blue
+\fancyhf{}
+\fancyhead[LE,RO]{\textcolor{MidnightBlue}{\thepage}}
+\fancyhead[LO]{\textcolor{MidnightBlue}{\leftmark}}
+\fancyhead[RE]{\textcolor{MidnightBlue}{\rightmark}}
+\makeatletter
+\patchcmd{\@fancyhead}{\rlap}{\color{MidnightBlue}\rlap}{}{}
+\patchcmd{\@fancyfoot}{\rlap}{\color{MidnightBlue}\rlap}{}{}
+\makeatother
+\renewcommand*\sectfont{\sffamily\bfseries\color{MidnightBlue}}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyfoot[RO,LE]{\textsf{\textbf{\thepage}}}%
+}
+
+\RequirePackage{xparse}
+\RequirePackage{float}
+\DeclareFloatingEnvironment[fileext=frm,placement={!ht},name=Equation]{eqfloat}
+
+\captionsetup[eqfloat]{labelfont=bf}
+
+\NewDocumentEnvironment{eqcap}{m}
+    {\begin{eqfloat}[H]
+    }
+    {
+    \addtocounter{equation}{-1}
+    \caption{#1}
+    \end{eqfloat}
+    }
+
+\NewDocumentEnvironment{framedeqcap}{m}
+    {\begin{eqfloat}[H]
+    \begin{mdframed}[roundcorner=5pt,linewidth=1pt]
+    }
+    {
+    \caption{#1}
+    \end{mdframed}\end{eqfloat}
+    }
+
+\RequirePackage{xargs}
+\RequirePackage[colorinlistoftodos,prependcaption,textsize=small]{todonotes}
+\newcommandx{\incomplete}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\rewrite}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\expand}[2][1=]{\todo[#1]{#2}}
+\newcommandx{\typo}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\incorrect}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+
+
