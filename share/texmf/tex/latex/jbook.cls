@@ -75,18 +75,11 @@
 \newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
 
 \renewcommand*{\raggedpart}{\raggedright}
-\renewcommand*{\partheadendvskip}{\null\vspace{2em}}
 
 \setkomafont{part}{\fontsize{18pt}{18pt}\selectfont\color{MidnightBlue}}
 \setkomafont{partnumber}{\fontsize{18pt}{18pt}\selectfont\color{MidnightBlue}}
 \renewcommand*{\partformat}{\partname\  \thepart}
-
-\makeatletter
-\let\old@endpart\@endpart
-\renewcommand\@endpart[1][]{%
-#1
-\old@endpart}
-\makeatother
+\renewcommand{\partheadstartvskip}{\null}
 
 \RequirePackage{tadoba}
 \RequirePackage{silari}
