@@ -40,7 +40,6 @@
 
 % Bounded Variation
 \newcommand*{\BV}{\sfB\sfV}
-\newcommand*{\closure}{\sfc\sfl}
 
 %% Different Derivatives
 % Ordinary Derivative
@@ -57,16 +56,44 @@
 {\dfrac{\partial^{#1} #2}{\partial #3^{#1}}}%
 }
 
-% Gradient
-\DeclareMathOperator*\grad{\nabla}
-
-% Curl
-\DeclareMathOperator*\curl{\nabla}
-
-% Divergence
-\DeclareMathOperator*\divergence{\nabla}
-
 \makeatletter
-\newcommand*\dotp{\mathpalette\dotp@{.5}}
-\newcommand*\dotp@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\newcommand*\pdot{\mathpalette\pdot@{.5}}
+\newcommand*\pdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
 \makeatother
+
+\newcommand*{\grad}[1][]
+{
+  \ifthenelse{\equal{#1}{}}
+  {
+    \operatorname{\nabla}
+  }
+  {
+    \operatorname{\nabla_{#1}}
+  }
+}
+
+\newcommand*{\curl}[1][]
+{
+  \ifthenelse{\equal{#1}{}}
+  {
+    \operatorname{\nabla \times}
+  }
+  {
+    \operatorname{\nabla_{#1} \times}
+  }
+}
+
+\AtBeginDocument{
+\let\division\div
+\let\div\relax
+\newcommand*{\div}[1][]
+{
+  \ifthenelse{\equal{#1}{}}
+  {
+    \operatorname{\nabla \pdot}
+  }
+  {
+    \operatorname{\nabla_{#1} \pdot}
+  }
+}
+}

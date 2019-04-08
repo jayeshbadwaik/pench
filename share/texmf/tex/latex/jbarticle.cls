@@ -16,8 +16,6 @@
 \RequirePackage{postumred}
 \RequirePackage{postambhora}
 
-\RequirePackage{tadoba}
-\RequirePackage{silari}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Configuration
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -29,4 +27,7 @@
 \RedeclareSectionCommand[tocnumwidth=2.0em]{part}
 \RedeclareSectionCommand[tocindent=4.0em,tocnumwidth=2.6em]{section}
 \RedeclareSectionCommand[tocindent=6.0em,tocnumwidth=3.7em]{subsection}
+
+\RequirePackage{tadoba}
+\RequirePackage{silari}
 

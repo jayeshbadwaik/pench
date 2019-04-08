@@ -17,9 +17,6 @@
 \RequirePackage{postumred}
 \RequirePackage{postambhora}
 
-\RequirePackage{tadoba}
-\RequirePackage{silari}
-
 
 \RequirePackage[acronym,symbols,nogroupskip]{glossaries-extra}
 
@@ -90,6 +87,9 @@
 #1
 \old@endpart}
 \makeatother
+
+\RequirePackage{tadoba}
+\RequirePackage{silari}
 
 
 
