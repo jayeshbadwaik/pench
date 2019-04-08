@@ -35,6 +35,15 @@
 % customize them according to our preferences.
 % We first define a dummy environment for tracking the counter. All math
 % environments would track according to this counter.
+\makeatletter
+\renewcommand\@endtheorem{\vvv@endmarker\endtrivlist\@endpefalse}
+\newcommand\vvv@endmarker{%
+  {\nobreak\hfil\penalty50
+  \hskip2em\vadjust{}\nobreak\hfil\blacklozenge
+  \parfillskip=0pt \finalhyphendemerits=0 \par
+  \penalty 10000 \parskip=0pt\noindent}\ignorespaces}
+\makeatother
+
 \newtheorem{environment}{Environment}
 
 
