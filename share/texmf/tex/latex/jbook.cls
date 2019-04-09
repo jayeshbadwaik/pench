@@ -81,7 +81,7 @@
 \renewcommand*{\partformat}{\partname\  \thepart}
 \renewcommand{\partheadstartvskip}{\null}
 
-\RequirePackage{makeidx}
+\RequirePackage[xindy]{imakeidx}
 
 
 \RequirePackage{tadoba}
