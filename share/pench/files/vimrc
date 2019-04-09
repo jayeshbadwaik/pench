@@ -34,8 +34,8 @@ let g:vimtex_toc_config = {
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'jobs',
     \ 'background' : 1,
-    \ 'build_dir' : './.tmp/livepreview',
-    \ 'aux_dir' : './.tmp/livepreview',
+    \ 'build_dir' : './tmp/livepreview',
+    \ 'aux_dir' : './tmp/livepreview',
     \ 'callback' : 1,
     \ 'continuous' : 1,
     \ 'executable' : 'latexmk',

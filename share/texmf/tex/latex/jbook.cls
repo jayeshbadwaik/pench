@@ -81,6 +81,9 @@
 \renewcommand*{\partformat}{\partname\  \thepart}
 \renewcommand{\partheadstartvskip}{\null}
 
+\RequirePackage{makeidx}
+
+
 \RequirePackage{tadoba}
 \RequirePackage{silari}
 

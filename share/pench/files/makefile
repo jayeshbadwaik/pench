@@ -1,5 +1,5 @@
 MAINFILE={{{TITLE}}}
-BUILD_DIR=.tmp/build
+BUILD_DIR=tmp/build
 ifndef VERBOSE
 .SILENT:
 endif
