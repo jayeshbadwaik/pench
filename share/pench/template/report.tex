@@ -1,0 +1,16 @@
+\documentclass[oneside,9pt,b5paper]{jreport}
+
+\subject{}
+\title{{{{TITLE}}}}
+\subtitle{}
+\author{Jayesh Badwaik}
+\date{}
+
+\addbibresource{library.bib}
+
+\begin{document}
+\maketitle[\value{page}]
+\tableofcontents
+\addtocontents{toc}{\protect\contentsline{part}{}{}{part.\thepart}}
+\printbibliography[heading=bibintoc]
+\end{document}

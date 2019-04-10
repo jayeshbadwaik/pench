@@ -23,6 +23,9 @@ case $DocType in
   book)
     cp $TemplatePath/book.tex $TargetPath/$ID/$ID.tex
     ;;
+  report)
+    cp $TemplatePath/report.tex $TargetPath/$ID/$ID.tex
+    ;;
   *)
     echo "Wrong Document Type"
     ;;

@@ -6,7 +6,7 @@ TemplatePath=$HOME/system/opt/pench/share/pench/template
 
 # Getting information from the User
 echo Creating a LaTeX Document:
-read -p "Enter the document type [article/beamer/book] : " -i "article" \
+read -p "Enter the document type [article/beamer/book/report] : " -i "article" \
         -e DocType
 read -p "Enter the target directory: " -i "$PWD" -e TargetPath
 read -p "Enter the title of the document: " -e DocName
