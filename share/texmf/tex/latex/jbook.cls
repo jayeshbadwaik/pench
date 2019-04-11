@@ -87,5 +87,6 @@
 \RequirePackage{tadoba}
 \RequirePackage{silari}
 
-
-
+\AtBeginDocument{
+  \renewcommand*{\glstextformat}[1]{\textcolor{Black}{#1}}
+}
