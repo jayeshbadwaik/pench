@@ -1,0 +1,34 @@
+\ProvidesPackage{slchapter}
+
+% Select indents and widths for the objects in table of contents. We use `em`
+% units since the widths and indents are decided based on the font width.
+\RedeclareSectionCommand[tocindent=3.5em,tocnumwidth=2.0em]{chapter}
+
+% Set Font Size of Chapter Title Text
+\addtokomafont{chapter}{
+  \fontsize{3ex}{3.2ex}\selectfont
+}
+
+% Set Font Size of Chapter Number Text
+\newkomafont{chapternumber}{
+  \fontsize{5ex}{5ex}\selectfont
+}
+
+% Set Font Size of Chapter Name Text
+\newkomafont{chaptername}{
+  \itshape\rmfamily\normalsize
+}
+
+% Set Chapter Formatting
+\renewcommand\chapterformat{
+    \parbox[b][2ex]{2em}{
+      \centering{
+      \usekomafont{chaptername}{\chaptername}
+      }\\
+      \vspace{0.2ex}
+      \usekomafont{chapternumber}{\thechapter}
+      \vfill
+    }
+    \rule[-0.5ex]{1pt}{7ex}
+    \enskip
+}

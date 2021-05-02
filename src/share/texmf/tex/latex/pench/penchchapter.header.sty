@@ -1,0 +1,21 @@
+\ProvidesPackage{slchapter.header}
+\RequirePackage[automark,autooneside=false]{scrlayer-scrpage}
+
+\defpairofpagestyles{chapter}{
+  \clearpairofpagestyles
+  \cfoot{\rule[\baselineskip]{\textwidth}{0.1pt}}
+  \ofoot{\pagemark}
+}
+
+\renewcommand*{\chapterpagestyle}{chapter}
+\defpairofpagestyles{main}{
+  \clearpairofpagestyles
+  \cfoot{\rule[\baselineskip]{\textwidth}{0.1pt}}
+  \chead{\rule[-\baselineskip]{\textwidth}{0.1pt}}
+  \ofoot{\pagemark}
+  \automark[section]{chapter}
+  \ihead{\leftmark}
+  \ohead{\Ifstr{\leftmark}{\rightmark}{}{\rightmark}}
+}
+
+

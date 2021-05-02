@@ -1,0 +1,19 @@
+\ProvidesPackage{slsection.header}
+\RequirePackage[automark,autooneside=false]{scrlayer-scrpage}
+\defpairofpagestyles{title}{
+  \clearpairofpagestyles
+  \cfoot{\rule[\baselineskip]{\textwidth}{0.1pt}}
+  \ofoot{\pagemark}
+}
+
+\defpairofpagestyles{main}{
+  \clearpairofpagestyles
+  \cfoot{\rule[\baselineskip]{\textwidth}{0.1pt}}
+  \chead{\rule[-\baselineskip]{\textwidth}{0.1pt}}
+  \automark[subsection]{section}
+  \ofoot{\pagemark}
+  \ihead{\leftmark}
+  \ohead{\Ifstr{\leftmark}{\rightmark}{}{\rightmark}}
+}
+
+\renewcommand*{\titlepagestyle}{title}

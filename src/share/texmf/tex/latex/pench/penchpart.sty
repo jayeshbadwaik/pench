@@ -1,0 +1,7 @@
+\ProvidesPackage{slpart}
+% Select indents and widths for the objects in table of contents. We use `em`
+% units since the widths and indents are decided based on the font width.
+\RedeclareSectionCommand[tocnumwidth=3.0em]{part}
+
+% Use Arabic Style for Part Numbering
+\renewcommand*{\thepart}{\arabic{part}}

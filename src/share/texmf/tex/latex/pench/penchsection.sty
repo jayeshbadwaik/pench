@@ -1,0 +1,41 @@
+\ProvidesPackage{slsection}
+\RequirePackage{relsize}
+\RequirePackage{ifthen}
+
+% Select indents and widths for the objects in table of contents. We use `em`
+% units since the widths and indents are decided based on the font width.
+\RedeclareSectionCommand[tocindent=4.5em,tocnumwidth=2.6em]{section}
+\RedeclareSectionCommand[tocindent=6.0em,tocnumwidth=3.7em]{subsection}
+
+
+
+% Set Font Size of Section Title Text
+\addtokomafont{section}{
+  \fontsize{2ex}{2ex}\selectfont
+}
+
+% Set font size of Section Number Text
+\newkomafont{sectionnumber}{
+  \fontsize{3ex}{3ex}\selectfont\rmfamily
+}
+
+% Format for Section Number
+\renewcommand\sectionformat{
+    \usekomafont{sectionnumber}{\thesection\autodot}\quad
+}
+
+% Format for Displaying the Section/Subsection Title
+\makeatletter
+\renewcommand\sectionlinesformat[4]{
+  \ifthenelse{
+    \equal{\detokenize{#1}}{\detokenize{section}}
+  }{
+    \makebox[1em][l]{\rule[-1ex]{\textwidth}{1pt}}
+  }{
+  }
+  \@hangfrom{\hskip #2#3}{#4}
+}
+\makeatother
+
+
+

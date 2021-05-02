@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SOURCE="${BASH_SOURCE[0]}"
+# resolve $SOURCE until the file is no longer a symlink
+while [ -h "$SOURCE" ]; do
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  # if $SOURCE was a relative symlink, we need to resolve it relative to the
+  # path where the symlink file was located
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
+DRY_RUN="No"
+
+if [ "$#" -ne 0 ]; then
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: sltex.create.interactive [--dry-run]"
+    exit 1
+  fi
+  DRY_RUN="Yes"
+fi
+
+echo "Please select the number corresponding to the document type:"
+DOCUMENT_TYPE_ARRAY=('article' 'beamer' 'book' 'letter' 'report')
+
+read -p "Enter Document Title: " -e DOCUMENT_TITLE
+read -p "Enter the Destination Directory: " -i "$PWD" -e DESTINATION_DIRECTORY
+
+select DOCUMENT_TYPE in ${DOCUMENT_TYPE_ARRAY[@]}; do
+  case $DOCUMENT_TYPE  in
+    article ) echo "Document Type: $DOCUMENT_TYPE"; break;;
+    beamer ) echo "Document Type: $DOCUMENT_TYPE"; break;;
+    book ) echo "Document Type: $DOCUMENT_TYPE"; break;;
+    letter ) echo "Document Type: $DOCUMENT_TYPE"; break;;
+    report ) echo "Document Type: $DOCUMENT_TYPE"; break;;
+    * ) echo "Incorrect choice.";
+        echo "Please select one of the numbers listed in the choices.";;
+  esac
+done
+
+if [[ $DRY_RUN == "Yes" ]]; then
+  echo Dry Execution:
+  echo $SCRIPT_DIR/sltex.create $DOCUMENT_TYPE $DOCUMENT_TITLE $DESTINATION_DIRECTORY
+else
+  $SCRIPT_DIR/sltex.create $DOCUMENT_TYPE $DOCUMENT_TITLE $DESTINATION_DIRECTORY
+fi

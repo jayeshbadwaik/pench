@@ -1,0 +1,114 @@
+\ProvidesPackage{eucoverpage}
+\makeatletter
+
+
+\providecommand{\@programme}{\@empty}
+\providecommand{\@topicid}{\@empty}
+\providecommand{\@topic}{\@empty}
+
+\providecommand{\@projectacronym}{\@empty}
+\providecommand{\@projectid}{\@empty}
+
+\providecommand{\@projectlogo}{\@empty}
+
+\providecommand{\@deliverable}{\@empty}
+\providecommand{\@deliverabletype}{\@empty}
+
+\providecommand{\@subject}{\@empty}
+\providecommand{\@title}{\@empty}
+\providecommand{\@subtitle}{\@empty}
+\providecommand{\@author}{\@empty}
+\providecommand{\@version}{\@empty}
+
+\providecommand{\@projectstartyear}{\@empty}
+\providecommand{\@projectendyear}{\@empty}
+\providecommand{\@copyrightnotice}{\@empty}
+
+\providecommand{\@eulogo}{\@empty}
+\providecommand{\@disclaimer}{\@empty}
+
+\newcommand{\eucoverpage}{
+\begin{titlepage}
+\begin{center}
+  \textbf{\@programme}\\[0.2ex]
+  \textbf{\@topicid}\\[0.2ex]
+  \@topic
+
+  \bigskip
+
+  \begin{large}
+    \@projectacronym
+  \end{large}
+
+  \begin{large}
+    \@projectid
+  \end{large}
+
+  \bigskip
+
+  \@projectlogo\relax
+
+  \bigskip\bigskip
+
+  \begin{LARGE}
+    \textbf{\@deliverable}
+  \end{LARGE}
+
+  \medskip
+
+  \begin{LARGE}
+    \textbf{\@deliverabletype}
+  \end{LARGE}
+
+  \medskip\medskip
+
+  \begin{LARGE}
+    \textsf{\textbf{\@subject}}
+  \end{LARGE}
+
+  \medskip\medskip
+
+  \begin{Huge}
+    \textsf{\textbf{\@title}}
+  \end{Huge}
+
+  \medskip\medskip
+
+  \begin{LARGE}
+    \textsf{\textbf{\@subtitle}}
+  \end{LARGE}
+
+  \medskip\medskip
+
+  \begin{LARGE}
+    \textsf{\textbf{\@version}}
+  \end{LARGE}
+
+
+
+  \vfill
+  \begin{large}
+    \@author
+  \end{large}
+  \bigskip\bigskip\bigskip
+
+  \@eulogo\relax
+
+  \bigskip
+
+  Date of Preparation (latest version): \@date
+
+  \smallskip
+
+  \@copyrightnotice
+
+  \bigskip
+
+  \rule{\textwidth}{0.1pt}
+
+  \@disclaimer
+\end{center}
+\end{titlepage}
+}
+\makeatother
+

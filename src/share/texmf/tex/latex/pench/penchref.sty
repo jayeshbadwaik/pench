@@ -1,0 +1,38 @@
+\ProvidesPackage{slref}
+
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+
+\PassOptionsToPackage{
+  hypertexnames=true,
+  plainpages=false,
+  pdfpagelabels,
+  pagebackref,
+}
+{hyperref}
+
+\PassOptionsToPackage{
+  capitalize,
+  nameinlink
+}
+{cleveref}
+
+
+\RequirePackage[
+  usenames,
+  dvipsnames,
+  svgnames,
+  table]
+{xcolor}
+
+\providecommand{\slurlcolor}{Sepia}
+\providecommand{\sllinkcolor}{MidnightBlue}
+\providecommand{\slcitecolor}{ForestGreen}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=\slurlcolor,
+  linkcolor=\sllinkcolor,
+  citecolor=\slcitecolor,
+}
+

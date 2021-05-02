@@ -1,0 +1,28 @@
+#!/bin/zsh
+# The purpose of this file is to generate good titlenames from user input
+# text.By good, we mean titles, which properly have underscores and hyphens in
+# place, and are easy to type on the command line.
+
+# Get the Title from the Command Line
+RawName=$*
+
+# Concatenate the strings to generate the raw title
+RawTitle=$(echo $RawName)
+
+# Remove All Special Characters except for Spaces, Periods, Underscores and
+# Hyphens
+PreSanitizedTitle=$(echo $RawTitle| sed 's/[^A-Za-z0-9. '-']//g')
+
+# Convert Spaces to Hyphens
+RC1SanitizedTitle=$(echo $PreSanitizedTitle| sed 's/ /'-'/g')
+
+RC2SanitizedTitle=$(echo $RC1SanitizedTitle| sed 's/'--'/'-'/g')
+RC3SanitizedTitle=$(echo $RC2SanitizedTitle| sed 's/'--'/'-'/g')
+RC4SanitizedTitle=$(echo $RC3SanitizedTitle| sed 's/'--'/'-'/g')
+
+SanitizedTitle=$(echo $RC4SanitizedTitle| sed 's/'--'/'-'/g')
+
+
+# Convert the Title To Lower Case
+Title=$(echo $SanitizedTitle | sed 's/\(.*\)/\L\1/')
+echo $Title

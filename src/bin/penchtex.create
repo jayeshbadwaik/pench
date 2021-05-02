@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -euo pipefail
+
+set -x
+
+SOURCE="${BASH_SOURCE[0]}"
+# resolve $SOURCE until the file is no longer a symlink
+while [ -h "$SOURCE" ]; do
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  # if $SOURCE was a relative symlink, we need to resolve it relative to the
+  # path where the symlink file was located
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+SCRIPT_DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
+
+if [ "$#" -ne 3 ]; then
+  echo "Script provided with $# arguments."
+  echo "Script requires: "
+  echo "1. Document Type"
+  echo "2. Document Title"
+  echo "3. Destination Directory"
+  exit 1
+fi
+
+DOCUMENT_TYPE=$1
+DOCUMENT_TITLE=$2
+DESTINATION_DIRECTORY=$3
+
+SANITIZED_DOCUMENT_TITLE=$($SCRIPT_DIR/sltex.sanitize.title $DOCUMENT_TITLE)
+DOCUMENT_PATH=$DESTINATION_DIRECTORY/$SANITIZED_DOCUMENT_TITLE
+
+if [ -d "$DOCUMENT_PATH" ]; then
+  echo "FATAL ERROR: $DOCUMENT_PATH already exists. Exiting...."
+fi
+
+mkdir -p $DOCUMENT_PATH
+
+TEMPLATE_DIRECTORY=$SCRIPT_DIR/../share/pench/latex/$DOCUMENT_TYPE/
+
+
+rsync -av --no-o --no-g -L $TEMPLATE_DIRECTORY/ $DOCUMENT_PATH/
+echo "MAINFILE=$SANITIZED_DOCUMENT_TITLE" > $DOCUMENT_PATH/document.mk
+echo "\\title{$DOCUMENT_TITLE}" > $DOCUMENT_PATH/author.tex
+mv $DOCUMENT_PATH/minimal.tex $DOCUMENT_PATH/minimal.tex.old
+mv $DOCUMENT_PATH/minimal.tex.old $DOCUMENT_PATH/$SANITIZED_DOCUMENT_TITLE.tex
