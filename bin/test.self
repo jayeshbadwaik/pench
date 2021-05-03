@@ -26,7 +26,7 @@ mkdir -p $TEST_DIRECTORY_ROOT
 TEST_DIRECTORY=$(mktemp -d -p $TEST_DIRECTORY_ROOT)
 
 for DOCUMENT_TYPE in "article" "beamer" "book" "letter" "report"; do
-  $SOURCE_DIRECTORY/bin/sltex.create \
+  $SOURCE_DIRECTORY/bin/penchtex.create \
     $DOCUMENT_TYPE \
     $DOCUMENT_TYPE \
     $TEST_DIRECTORY/

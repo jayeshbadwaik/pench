@@ -17,7 +17,7 @@ DRY_RUN="No"
 
 if [ "$#" -ne 0 ]; then
   if [ "$#" -ne 1 ]; then
-    echo "Usage: sltex.create.interactive [--dry-run]"
+    echo "Usage: penchtex.create.interactive [--dry-run]"
     exit 1
   fi
   DRY_RUN="Yes"
@@ -43,7 +43,7 @@ done
 
 if [[ $DRY_RUN == "Yes" ]]; then
   echo Dry Execution:
-  echo $SCRIPT_DIR/sltex.create $DOCUMENT_TYPE $DOCUMENT_TITLE $DESTINATION_DIRECTORY
+  echo $SCRIPT_DIR/penchtex.create $DOCUMENT_TYPE $DOCUMENT_TITLE $DESTINATION_DIRECTORY
 else
-  $SCRIPT_DIR/sltex.create $DOCUMENT_TYPE $DOCUMENT_TITLE $DESTINATION_DIRECTORY
+  $SCRIPT_DIR/penchtex.create $DOCUMENT_TYPE $DOCUMENT_TITLE $DESTINATION_DIRECTORY
 fi
