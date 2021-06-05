@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{slbeamer}
+\ProvidesClass{penchbeamer}
 \RequirePackage[dvipsnames]{xcolor}
 \LoadClassWithOptions{beamer}
 
@@ -13,10 +13,10 @@
 \fi}
 
 
-\RequirePackage{slbeamer.ref}
-\RequirePackage{slbeamer.header}
-\RequirePackage{slfont}
-\RequirePackage{sllang}
+\RequirePackage{penchbeamer.ref}
+\RequirePackage{penchbeamer.header}
+\RequirePackage{penchfont}
+\RequirePackage{penchlang}
 
 % Disable Navigation Symbols
 \beamertemplatenavigationsymbolsempty

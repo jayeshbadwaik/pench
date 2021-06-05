@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{slreport}
+\ProvidesClass{penchreport}
 \LoadClassWithOptions{scrreprt}
 
 % Allow optional commands for sectioning commands which then allow you to type
@@ -14,11 +14,11 @@
 }
 {scrbook}
 
-\RequirePackage{slpart}
-\RequirePackage{slchapter}
-\RequirePackage{slsection}
-\RequirePackage{slfont}
-\RequirePackage{slbib}
-\RequirePackage{sllang}
-\RequirePackage{slref}
-\RequirePackage{slchapter.header}
+\RequirePackage{penchpart}
+\RequirePackage{penchchapter}
+\RequirePackage{penchsection}
+\RequirePackage{penchfont}
+\RequirePackage{penchbib}
+\RequirePackage{penchlang}
+\RequirePackage{penchref}
+\RequirePackage{penchchapter.header}

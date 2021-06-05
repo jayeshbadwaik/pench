@@ -1,1 +1,1 @@
-../../../texmf/tex/latex/scalable/slbook.cls
+../../../texmf/tex/latex/pench/penchbook.cls

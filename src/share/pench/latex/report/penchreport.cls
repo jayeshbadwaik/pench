@@ -1,1 +1,1 @@
-../../../texmf/tex/latex/scalable/slreport.cls
+../../../texmf/tex/latex/pench/penchreport.cls

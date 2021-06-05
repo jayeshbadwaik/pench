@@ -1,1 +1,1 @@
-../../../texmf/tex/latex/scalable/slarticle.cls
+../../../texmf/tex/latex/pench/pencharticle.cls

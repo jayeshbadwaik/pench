@@ -1,1 +1,1 @@
-../../../texmf/tex/latex/scalable/slbeamer.cls
+../../../texmf/tex/latex/pench/penchbeamer.cls
